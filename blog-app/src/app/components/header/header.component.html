@@ -1,0 +1,14 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Home</span>
+
+    <span class="example-spacer material-icons"></span>
+    <button mat-button [matMenuTriggerFor]="menu">
+      <span class="material-icons"> account_circle </span>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>Login</button>
+      <button mat-menu-item>Registration</button>
+    </mat-menu>
+  </mat-toolbar-row>
+</mat-toolbar>

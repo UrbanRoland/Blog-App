@@ -1,13 +1,7 @@
 <mat-toolbar color="grey" class="toolbar">
-  <a mat-button href="https://www.google.com/" target="_blank">Home</a>
+  <a mat-button routerLink="/main">Home</a>
   <span class="example-spacer"></span>
-  <!--<button
-    mat-button
-    mat-icon-button
-    aria-label="Example icon-button with share icon"
-  >
-    <mat-icon>search</mat-icon>
-  </button>-->
+
   <div id="search-container">
     <div class="search-fields">
       <mat-form-field>
@@ -37,8 +31,9 @@
     <mat-icon> account_circle </mat-icon>
   </button>
   <mat-menu #menu="matMenu">
-    <button mat-menu-item>Login</button>
+    <a mat-menu-item routerLink="/login">Login</a>
     <button mat-menu-item>Registration</button>
   </mat-menu>
 </mat-toolbar>
 <p></p>
+<app-main></app-main>

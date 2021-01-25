@@ -1,12 +1,12 @@
 :host {
   display: flex;
   justify-content: center;
-  margin: 100px 0px;
+  padding-top: 100px;
 }
 
 .mat-form-field {
   width: 100%;
-  min-width: 300px;
+  min-width: 350px;
 }
 
 mat-card-title,
@@ -41,4 +41,13 @@ mat-card-content {
 }
 .forgot-pass {
   padding-left: 5px;
+}
+.registration-button {
+  padding-right: 5px;
+  padding-left: 5px;
+}
+.icon {
+  padding-left: 34%;
+  font-size: 90px;
+  margin-bottom: 85px;
 }

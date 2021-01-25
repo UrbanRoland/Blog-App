@@ -1,7 +1,9 @@
 <mat-card>
+  <mat-icon class="icon">login</mat-icon>
   <mat-card-title>Login</mat-card-title>
   <mat-card-content>
     <form>
+      <p></p>
       <p>
         <mat-form-field appearance="fill">
           <mat-label>Enter your email</mat-label>
@@ -32,7 +34,11 @@
       <div class="actions">
         <a class="home-button" routerLink="/main">Home</a>
         /
-        <a class="forgot-pass">Forgot Password?</a>
+        <a class="registration-button" routerLink="/registration"
+          >Registration</a
+        >
+        /
+        <a class="forgot-pass" routerLink="/forgotPassword">Forgot Password?</a>
       </div>
     </form>
   </mat-card-content>

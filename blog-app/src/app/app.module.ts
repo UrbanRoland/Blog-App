@@ -17,9 +17,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatChipsModule } from '@angular/material/chips';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { RegistrationComponent } from './components/registration/registration.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, MainComponent, HeaderComponent, ForgotPasswordComponent],
+  declarations: [AppComponent, LoginComponent, MainComponent, HeaderComponent, ForgotPasswordComponent, RegistrationComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

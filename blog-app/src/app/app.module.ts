@@ -15,9 +15,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatChipsModule } from '@angular/material/chips';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, MainComponent, HeaderComponent],
+  declarations: [AppComponent, LoginComponent, MainComponent, HeaderComponent, ForgotPasswordComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -30,6 +32,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatToolbarModule,
     MatInputModule,
     MatFormFieldModule,
+    MatChipsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

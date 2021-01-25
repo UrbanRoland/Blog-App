@@ -1,1 +1,39 @@
-<p>login works!</p>
+<mat-card>
+  <mat-card-title>Login</mat-card-title>
+  <mat-card-content>
+    <form>
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Enter your email</mat-label>
+          <input matInput />
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Enter your password</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'" />
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="hide = !hide"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide"
+          >
+            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+          </button>
+        </mat-form-field>
+      </p>
+
+      <div class="submit-button">
+        <button class="button" type="submit" mat-button>LOGIN</button>
+      </div>
+      <p></p>
+      <div class="actions">
+        <a class="home-button" routerLink="/main">Home</a>
+        /
+        <a class="forgot-pass">Forgot Password?</a>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

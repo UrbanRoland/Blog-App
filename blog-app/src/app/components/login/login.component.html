@@ -2,7 +2,7 @@
   <mat-icon class="icon">login</mat-icon>
   <mat-card-title>Login</mat-card-title>
   <mat-card-content>
-    <form>
+    <form #loginform="ngForm" (ngSubmit)="loginUser()">
       <p></p>
       <p>
         <mat-form-field appearance="fill">

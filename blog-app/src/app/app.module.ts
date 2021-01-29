@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,7 +21,14 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
 import { RegistrationComponent } from './components/registration/registration.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, MainComponent, HeaderComponent, ForgotPasswordComponent, RegistrationComponent],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    MainComponent,
+    HeaderComponent,
+    ForgotPasswordComponent,
+    RegistrationComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -34,6 +42,8 @@ import { RegistrationComponent } from './components/registration/registration.co
     MatInputModule,
     MatFormFieldModule,
     MatChipsModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

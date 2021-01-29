@@ -20,8 +20,16 @@ public class UserService {
 		this.roleRepository = roleRepository;
 	}
 	
-	public void saveUser(User user) {
-		userRepository.save(user);
+	public User saveUser(User user) {
+		return userRepository.save(user);
+	}
+	
+	public User fetchUserByEmail(String email) {
+		return userRepository.findByEmail(email);
+	}
+	
+	public User fetchUserByEmailAndPassword(String email,String password) {
+		return userRepository.findByEmailAndPassword(email, password);
 	}
 	
 }

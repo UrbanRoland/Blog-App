@@ -1,0 +1,53 @@
+:host {
+  display: flex;
+  justify-content: center;
+  padding-top: 100px;
+}
+
+.mat-form-field {
+  width: 100%;
+  min-width: 350px;
+}
+
+mat-card-title,
+mat-card-content {
+  display: flex;
+  justify-content: center;
+}
+
+.error {
+  padding: 16px;
+  width: 300px;
+  color: white;
+  background-color: red;
+}
+
+.submit-button,
+.actions {
+  display: flex;
+  justify-content: center;
+}
+.button {
+  width: 300px;
+  background-color: #33b5e5;
+  color: white;
+}
+.actions a {
+  text-decoration: none;
+  color: #007bff;
+}
+.home-button {
+  padding-right: 5px;
+}
+.forgot-pass {
+  padding-left: 5px;
+}
+.login-button {
+  padding-right: 5px;
+  padding-left: 5px;
+}
+.icon {
+  padding-left: 34%;
+  font-size: 50px;
+  margin-bottom: 50px;
+}

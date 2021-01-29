@@ -11,4 +11,7 @@ export class RegistrationService {
   public loginUserFromRemote(user: User): Observable<any> {
     return this._http.post('http://localhost:9000/api/login', user);
   }
+  public registerUserFromRemote(user: User): Observable<any> {
+    return this._http.post('http://localhost:9000/api/registration', user);
+  }
 }

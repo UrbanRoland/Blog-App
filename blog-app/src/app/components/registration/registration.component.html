@@ -1,26 +1,31 @@
 <mat-card>
   <mat-card-title>Registration</mat-card-title>
   <mat-card-content>
-    <form>
+    <form #registrationForm="ngForm" (ngSubmit)="registerUser()">
       <p></p>
       <p>
         <mat-form-field appearance="fill">
           <mat-label>Enter your username</mat-label>
-          <input matInput />
+          <input matInput [(ngModel)]="user.username" name="username" />
         </mat-form-field>
       </p>
 
       <p>
         <mat-form-field appearance="fill">
           <mat-label>Enter your email</mat-label>
-          <input matInput />
+          <input matInput [(ngModel)]="user.email" name="email" />
         </mat-form-field>
       </p>
 
       <p>
         <mat-form-field appearance="fill">
           <mat-label>Enter your password</mat-label>
-          <input matInput [type]="hide ? 'password' : 'text'" />
+          <input
+            matInput
+            [type]="hide ? 'password' : 'text'"
+            name="password"
+            [(ngModel)]="user.password"
+          />
           <button
             mat-icon-button
             matSuffix
@@ -37,6 +42,7 @@
           <mat-label>Enter your password</mat-label>
           <input matInput [type]="hide2 ? 'password' : 'text'" />
           <button
+            name="cpassword"
             mat-icon-button
             matSuffix
             (click)="hide2 = !hide2"

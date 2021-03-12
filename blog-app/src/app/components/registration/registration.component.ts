@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { RegistrationService } from '../../service/registration.service';
+import { RegistrationService } from '../../services/registration.service';
 import { User } from '../../classes/user';
 import { Route, Router } from '@angular/router';
+import { SignUpInfo } from 'src/app/auth/signup-info';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-registration',
@@ -9,23 +11,38 @@ import { Route, Router } from '@angular/router';
   styleUrls: ['./registration.component.scss'],
 })
 export class RegistrationComponent implements OnInit {
-  constructor(private _service: RegistrationService, private _router: Router) {}
-
-  ngOnInit(): void {}
   hide = true;
   hide2 = true;
-  msg = '';
-  user = new User();
+  form: any = {};
+  signupInfo: SignUpInfo;
+  isSignedUp = false;
+  isSignUpFailed = false;
+  errorMessage = '';
 
-  registerUser() {
-    this._service.registerUserFromRemote(this.user).subscribe(
+  constructor(private authService: AuthService) {}
+
+  ngOnInit() {}
+
+  onSubmit() {
+    console.log(this.form);
+
+    this.signupInfo = new SignUpInfo(
+      this.form.name,
+      this.form.username,
+      this.form.email,
+      this.form.password
+    );
+
+    this.authService.signUp(this.signupInfo).subscribe(
       (data) => {
-        console.log('response receive');
-        this._router.navigate(['/login']);
+        console.log(data);
+        this.isSignedUp = true;
+        this.isSignUpFailed = false;
       },
       (error) => {
-        console.log('exception occured');
-        this.msg = 'Wrong data!';
+        console.log(error);
+        this.errorMessage = error.error.message;
+        this.isSignUpFailed = true;
       }
     );
   }

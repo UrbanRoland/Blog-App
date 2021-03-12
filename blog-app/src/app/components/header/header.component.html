@@ -31,8 +31,11 @@
     <mat-icon> account_circle </mat-icon>
   </button>
   <mat-menu #menu="matMenu">
-    <a mat-menu-item routerLink="/login">Login</a>
-    <button mat-menu-item>Registration</button>
+    <a *ngIf="!authority" mat-menu-item routerLink="/login">Login</a>
+    <a *ngIf="!authority" mat-menu-item routerLink="/registration"
+      >Registration</a
+    >
+    <a *ngIf="authority" mat-menu-item (click)="logout()"> Logout</a>
   </mat-menu>
 </mat-toolbar>
 <p></p>

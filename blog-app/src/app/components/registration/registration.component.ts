@@ -36,6 +36,7 @@ export class RegistrationComponent implements OnInit {
     this.authService.signUp(this.signupInfo).subscribe(
       (data) => {
         console.log(data);
+
         this.isSignedUp = true;
         this.isSignUpFailed = false;
       },

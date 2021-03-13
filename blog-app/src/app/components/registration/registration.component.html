@@ -3,6 +3,9 @@
   <div *ngIf="f.submitted && isSignUpFailed" class="alert alert-warning">
     Signup failed!<br />{{ errorMessage }}
   </div>
+  <div *ngIf="isSignedUp && !isSignUpFailed">
+    Your registration is successful. Please login!
+  </div>
   <mat-card-content>
     <form
       name="form"
@@ -19,8 +22,15 @@
             name="name"
             [(ngModel)]="form.name"
             #name="ngModel"
+            minlength="3"
             required
           />
+          <mat-error *ngIf="name.invalid && name.errors.required"
+            >You must enter a value</mat-error
+          >
+          <mat-error *ngIf="name.invalid && name.errors.minlength"
+            >The name must be at least 3 characters long</mat-error
+          >
         </mat-form-field>
       </p>
 
@@ -32,8 +42,15 @@
             name="username"
             [(ngModel)]="form.username"
             #username="ngModel"
+            minlength="3"
             required
           />
+          <mat-error *ngIf="username.invalid && username.errors.required"
+            >You must enter a value</mat-error
+          >
+          <mat-error *ngIf="username.invalid && username.errors.minlength"
+            >The username must be at least 3 characters long</mat-error
+          >
         </mat-form-field>
       </p>
       <p>
@@ -47,6 +64,12 @@
             required
             email
           />
+          <mat-error *ngIf="email.invalid && email.errors.required"
+            >You must enter a value</mat-error
+          >
+          <mat-error *ngIf="email.invalid && email.errors.email"
+            >Email must be a valid email address</mat-error
+          >
         </mat-form-field>
       </p>
       <p>
@@ -71,16 +94,26 @@
           >
             <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
           </button>
+          <mat-error *ngIf="password.invalid && password.errors.required"
+            >You must enter a value</mat-error
+          >
+          <mat-error *ngIf="password.invalid && password.errors.minlength"
+            >The password must be at least 6 characters long</mat-error
+          >
         </mat-form-field>
       </p>
       <p>
         <mat-form-field appearance="fill">
           <mat-label>Enter your password</mat-label>
           <input
+            name="confirmPassword"
             required
             minlength="6"
             matInput
             [type]="hide2 ? 'password' : 'text'"
+            ngValidateEqual="password"
+            #modelConfirmPassword="ngModel"
+            [(ngModel)]="form.confirmPassword"
           />
           <button
             name="cpassword"
@@ -92,6 +125,27 @@
           >
             <mat-icon>{{ hide2 ? "visibility_off" : "visibility" }}</mat-icon>
           </button>
+          <mat-error
+            *ngIf="
+              modelConfirmPassword.invalid &&
+              modelConfirmPassword.errors.required
+            "
+            >You must enter a value</mat-error
+          >
+          <mat-error
+            *ngIf="
+              (modelConfirmPassword.dirty || modelConfirmPassword.touched) &&
+              modelConfirmPassword.invalid
+            "
+          >
+            <p
+              *ngIf="
+                modelConfirmPassword.hasError('notEqual') && password.valid
+              "
+            >
+              Passwords Don't Match
+            </p>
+          </mat-error>
         </mat-form-field>
       </p>
 

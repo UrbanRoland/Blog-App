@@ -21,6 +21,7 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
 import { RegistrationComponent } from './components/registration/registration.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UserComponent } from './components/user/user.component';
+import { ValidateEqualModule } from 'ng-validate-equal';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { UserComponent } from './components/user/user.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    ValidateEqualModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

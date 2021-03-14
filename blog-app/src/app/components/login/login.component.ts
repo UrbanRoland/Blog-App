@@ -12,7 +12,6 @@ import { AuthService } from 'src/app/auth/auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-//implements OnInit
 export class LoginComponent implements OnInit {
   hide = true;
   form: any = {};
@@ -35,7 +34,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.form);
+    //console.log(this.form);
 
     this.loginInfo = new AuthLoginInfo(this.form.username, this.form.password);
 
@@ -51,7 +50,7 @@ export class LoginComponent implements OnInit {
         this.reloadPage();
       },
       (error) => {
-        console.log(error);
+        //console.log(error);
         this.errorMessage = error.error.message;
         this.isLoginFailed = true;
       }

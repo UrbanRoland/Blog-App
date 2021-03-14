@@ -1,67 +1,48 @@
 package com.blog.model;
 
-import java.util.HashSet;
-import java.util.Set;
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import org.hibernate.annotations.NaturalId;
 
 @Entity
-@Table( name = "roles" )
-
+@Table(name = "roles")
 public class Role {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Id
-	private Long id;
-	
-	private String role;
-	
-	@ManyToMany( mappedBy = "roles")
-	private Set<User> users = new HashSet<User>();
-	
-	public Role(String role){
-		this.role=role;
-	}
-	
-	@Override
-	public String toString() {
-		return role;
-	}
-	 public Role() {}
+    @Enumerated(EnumType.STRING)
+    @NaturalId
+    @Column(length = 60)
+    private RoleName name;
 
-	public Long getId() {
-		return id;
-	}
+    public Role() {}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public Role(RoleName name) {
+        this.name = name;
+    }
 
-	public String getRole() {
-		return role;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public void setRole(String role) {
-		this.role = role;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public Set<User> getUsers() {
-		return users;
-	}
+    public RoleName getName() {
+        return name;
+    }
 
-	public void setUsers(Set<User> users) {
-		this.users = users;
-	}
-	
-	 
+    public void setName(RoleName name) {
+        this.name = name;
+    }
 	
 }

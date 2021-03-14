@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,9 +19,20 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatChipsModule } from '@angular/material/chips';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { RegistrationComponent } from './components/registration/registration.component';
+import { HttpClientModule } from '@angular/common/http';
+import { UserComponent } from './components/user/user.component';
+import { ValidateEqualModule } from 'ng-validate-equal';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, MainComponent, HeaderComponent, ForgotPasswordComponent, RegistrationComponent],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    MainComponent,
+    HeaderComponent,
+    ForgotPasswordComponent,
+    RegistrationComponent,
+    UserComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -34,6 +46,10 @@ import { RegistrationComponent } from './components/registration/registration.co
     MatInputModule,
     MatFormFieldModule,
     MatChipsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    ValidateEqualModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

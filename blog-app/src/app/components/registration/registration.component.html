@@ -1,11 +1,11 @@
 <mat-card>
   <mat-card-title>Registration</mat-card-title>
-  <div *ngIf="f.submitted && isSignUpFailed" class="alert alert-warning">
+  <mat-card *ngIf="f.submitted && isSignUpFailed" class="failed">
     Signup failed!<br />{{ errorMessage }}
-  </div>
-  <div *ngIf="isSignedUp && !isSignUpFailed">
+  </mat-card>
+  <mat-card *ngIf="isSignedUp && !isSignUpFailed" class="success">
     Your registration is successful. Please login!
-  </div>
+  </mat-card>
   <mat-card-content>
     <form
       name="form"

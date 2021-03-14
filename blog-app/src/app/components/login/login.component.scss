@@ -15,13 +15,6 @@ mat-card-content {
   justify-content: center;
 }
 
-.error {
-  padding: 16px;
-  width: 300px;
-  color: white;
-  background-color: red;
-}
-
 .submit-button,
 .actions {
   display: flex;
@@ -50,4 +43,16 @@ mat-card-content {
   padding-left: 34%;
   font-size: 90px;
   margin-bottom: 85px;
+}
+.failed {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  text-align: center;
+}
+.loginMsg {
+  color: #0c5460;
+  background-color: #d1ecf1;
+  border-color: #bee5eb;
+  text-align: center;
 }

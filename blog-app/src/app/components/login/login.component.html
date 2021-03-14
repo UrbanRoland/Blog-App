@@ -1,6 +1,10 @@
-<mat-card>
+<mat-card *ngIf="isLoggedIn" class="loginMsg">You are logged in.</mat-card>
+<mat-card *ngIf="!isLoggedIn">
   <mat-icon class="icon">login</mat-icon>
   <mat-card-title>Login</mat-card-title>
+  <mat-card *ngIf="f.submitted && isLoginFailed" class="failed">
+    Login failed
+  </mat-card>
   <mat-card-content>
     <form
       name="form"
@@ -9,9 +13,7 @@
       novalidate
     >
       <p></p>
-      <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger">
-        Login failed: {{ errorMessage }}
-      </div>
+
       <p>
         <mat-form-field appearance="fill">
           <mat-label>Enter your username</mat-label>
@@ -20,20 +22,22 @@
             name="username"
             [(ngModel)]="form.username"
             #username="ngModel"
+            minlength="3"
             required
           />
+          <mat-error *ngIf="username.invalid && username.errors.required"
+            >You must enter a value</mat-error
+          >
+          <mat-error *ngIf="username.invalid && username.errors.minlength"
+            >The username must be at least 3 characters long</mat-error
+          >
         </mat-form-field>
       </p>
 
       <p>
         <mat-form-field appearance="fill">
           <mat-label>Enter your password</mat-label>
-          <div *ngIf="f.submitted && password.invalid">
-            <div *ngIf="password.errors.required">Password is required</div>
-            <div *ngIf="password.errors.minlength">
-              Password must be at least 6 characters
-            </div>
-          </div>
+
           <input
             name="password"
             [(ngModel)]="form.password"
@@ -43,6 +47,12 @@
             matInput
             [type]="hide ? 'password' : 'text'"
           />
+          <mat-error *ngIf="password.invalid && password.errors.required"
+            >You must enter a value</mat-error
+          >
+          <mat-error *ngIf="password.invalid && password.errors.minlength"
+            >The password must be at least 6 characters long</mat-error
+          >
           <button
             mat-icon-button
             matSuffix

@@ -57,7 +57,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter  {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-     
+        http.headers().frameOptions().disable();
 
         http.cors().and().csrf().disable().
        
@@ -72,6 +72,8 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter  {
         http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
       
     }
+
+   
 
 
 }
